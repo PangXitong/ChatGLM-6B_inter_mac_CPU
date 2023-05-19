@@ -7,12 +7,15 @@ st.set_page_config(
     page_title="ChatGLM-6b 演示",
     page_icon=":robot:"
 )
-
+st.title(':robot_face: ''ChatGLM-6B_inter_mac_CPU')
+st.markdown('<div><a href="https://github.com/PangXitong/ChatGLM-6B_inter_mac_CPU"target="_blank">此项目</a>由<a href="https://pangxitong.github.io"target="_blank">庞玺桐</a>进行二次开发，针对inter_mac在CPU上运行模型推理进行适配和优化<br>（基于<a href="https://github.com/THUDM"target="_blank">清华大学知识工程集团</a>的<a href="http://keg.cs.tsinghua.edu.cn/jietang/"target="_blank">唐杰博士</a>的开源项目<a href="https://github.com/THUDM/ChatGLM-6B"target="_blank">ChatGLM-6B</a>）</div><br>', unsafe_allow_html=True)
 
 @st.cache_resource
 def get_model():
-    tokenizer = AutoTokenizer.from_pretrained("THUDM/chatglm-6b", trust_remote_code=True)
-    model = AutoModel.from_pretrained("THUDM/chatglm-6b", trust_remote_code=True).half().cuda()
+    #tokenizer = AutoTokenizer.from_pretrained("THUDM/chatglm-6b", trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained("/Volumes/TOSHIBA External USB 30 Media/chatglm-6b", trust_remote_code=True)
+    #model = AutoModel.from_pretrained("THUDM/chatglm-6b", trust_remote_code=True).half().cuda()
+    model = AutoModel.from_pretrained("/Volumes/TOSHIBA External USB 30 Media/chatglm-6b", trust_remote_code=True).float()
     model = model.eval()
     return tokenizer, model
 
@@ -28,8 +31,6 @@ def predict(input, max_length, top_p, temperature, history=None):
 
     with container:
         if len(history) > 0:
-            if len(history)>MAX_BOXES:
-                history = history[-MAX_TURNS:]
             for i, (query, response) in enumerate(history):
                 message(query, avatar_style="big-smile", key=str(i) + "_user")
                 message(response, avatar_style="bottts", key=str(i))

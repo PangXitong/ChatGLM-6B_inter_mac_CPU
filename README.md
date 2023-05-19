@@ -1,3 +1,33 @@
+# ChatGLM-6B_inter_mac_CPU
+## （正在开发中，但现在是可用版本）
+##### 此仓库为庞玺桐根据[THUDM/ChatGLM-6B](https://github.com/THUDM/ChatGLM-6B)对于Inrer_Mac_CPU运行MOSS进行适配
+
+## 从本地加载模型
+##### macOS不支持调取模型，所以只能从本地加载
+以上代码会由 `transformers` 自动下载模型实现和参数。完整的模型实现可以在 [Hugging Face Hub](https://huggingface.co/THUDM/chatglm-6b)。如果你的网络环境较差，下载模型参数可能会花费较长时间甚至失败。此时可以先将模型下载到本地，然后从本地加载。
+
+从 Hugging Face Hub 下载模型需要先[安装Git LFS](https://docs.github.com/zh/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)，然后运行
+```Shell
+git clone https://huggingface.co/THUDM/chatglm-6b
+```
+本仓库将克隆的模型仓库放在/Volumes/TOSHIBA External USB 30 Media/chatglm-6b，如有需要可以更改文件储存路径和文件路径
+启动网页演示“web_demo.py”（目前不可用，正在尝试适配）
+```Shell
+python3 web_demo.py
+```
+启动网页演示“web_demo2.py”（推荐）
+```Shell
+streamlit run web_demo2.py
+```
+启动命令行"cli_demo.py"
+```Shell
+python3 cli_demo.py
+```
+### 以下为ChatGLM-6B的README
+
+
+
+
 # ChatGLM-6B
 
 <p align="center">

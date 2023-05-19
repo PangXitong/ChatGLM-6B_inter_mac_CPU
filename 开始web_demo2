@@ -1,0 +1,2 @@
+cd /Users/mac/Desktop/ChatGLM-6B_inter_mac_CPU
+streamlit run web_demo2.py

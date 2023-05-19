@@ -4,8 +4,8 @@ import signal
 from transformers import AutoTokenizer, AutoModel
 import readline
 
-tokenizer = AutoTokenizer.from_pretrained("THUDM/chatglm-6b", trust_remote_code=True)
-model = AutoModel.from_pretrained("THUDM/chatglm-6b", trust_remote_code=True).half().cuda()
+tokenizer = AutoTokenizer.from_pretrained("/Volumes/TOSHIBA External USB 30 Media/chatglm-6b", trust_remote_code=True)
+model = AutoModel.from_pretrained("/Volumes/TOSHIBA External USB 30 Media/chatglm-6b", trust_remote_code=True).float()#.half().cuda()
 model = model.eval()
 
 os_name = platform.system()
